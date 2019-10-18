@@ -1,0 +1,18 @@
+CREATE DATABASE clima_bd;
+
+USE clima_bd;
+
+CREATE TABLE localizacao (
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ tp_minima FLOAT NOT NULL,
+ tp_maxima FLOAT NOT NULL
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE cliente (
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(255) NOT NULL,
+ idade VARCHAR(255) NOT NULL,
+ id_localizacao INT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+ ALTER TABLE cliente ADD CONSTRAINT id_fk_localizacao FOREIGN KEY ( id_localizacao ) REFERENCES localizacao ( id ) ;
